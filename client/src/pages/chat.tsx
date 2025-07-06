@@ -126,7 +126,7 @@ export default function Chat() {
     <div className="max-w-md mx-auto bg-white min-h-screen relative">
       <Header />
       
-      <main className="pb-40 pt-4 chat-container" style={{ maxHeight: 'calc(100vh - 200px)', overflowY: 'auto' }}>
+      <main className="pb-40 pt-4 chat-container" style={{ minHeight: 'calc(100vh - 200px)', overflowY: 'auto' }}>
         {/* Welcome Message */}
         <div className="px-4 mb-6">
           <div className="bg-gradient-to-r from-app-primary to-app-secondary rounded-2xl p-6 text-white">
