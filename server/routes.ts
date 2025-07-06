@@ -256,7 +256,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Get restaurant details for each reservation
       const reservationsWithDetails = await Promise.all(
         reservations.map(async (reservation) => {
-          const restaurant = await storage.getRestaurant(reservation.restaurantId);
+          const restaurant = reservation.restaurantId ? await storage.getRestaurant(reservation.restaurantId) : null;
           return {
             ...reservation,
             restaurant
@@ -279,7 +279,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Get restaurant details for each favorite
       const favoritesWithDetails = await Promise.all(
         favorites.map(async (favorite) => {
-          const restaurant = await storage.getRestaurant(favorite.restaurantId);
+          const restaurant = favorite.restaurantId ? await storage.getRestaurant(favorite.restaurantId) : null;
           return {
             ...favorite,
             restaurant
