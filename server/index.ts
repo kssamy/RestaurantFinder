@@ -1,3 +1,13 @@
+// Load environment variables for local development
+try {
+  require('dotenv').config();
+  console.log('Environment loaded. OpenAI key present:', !!process.env.OPENAI_API_KEY);
+  console.log('Yelp key present:', !!process.env.YELP_API_KEY);
+} catch (error) {
+  // dotenv not available (production or replit)
+  console.log('Dotenv not available, using system environment variables');
+}
+
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
