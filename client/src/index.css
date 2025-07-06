@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(11, 100%, 60%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(147, 25%, 45%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --accent: hsl(51, 100%, 50%);
+  --accent-foreground: hsl(0, 0%, 0%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* App-specific colors */
+  --app-primary: hsl(11, 100%, 60%); /* #FF6B35 */
+  --app-secondary: hsl(147, 25%, 45%); /* #2E8B57 */
+  --app-accent: hsl(51, 100%, 50%); /* #FFD700 */
+  --app-neutral-50: hsl(210, 17%, 98%); /* #F8F9FA */
+  --app-neutral-100: hsl(210, 14%, 91%); /* #E9ECEF */
+  --app-neutral-900: hsl(210, 11%, 21%); /* #343A40 */
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(11, 100%, 60%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(147, 25%, 45%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --accent: hsl(51, 100%, 50%);
+  --accent-foreground: hsl(0, 0%, 0%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: hsl(var(--app-neutral-50));
+  }
+}
+
+@layer utilities {
+  .app-primary {
+    color: hsl(var(--app-primary));
+  }
+  
+  .bg-app-primary {
+    background-color: hsl(var(--app-primary));
+  }
+  
+  .app-secondary {
+    color: hsl(var(--app-secondary));
+  }
+  
+  .bg-app-secondary {
+    background-color: hsl(var(--app-secondary));
+  }
+  
+  .app-accent {
+    color: hsl(var(--app-accent));
+  }
+  
+  .bg-app-accent {
+    background-color: hsl(var(--app-accent));
+  }
+
+  .text-app-neutral-900 {
+    color: hsl(var(--app-neutral-900));
+  }
+
+  .bg-app-neutral-100 {
+    background-color: hsl(var(--app-neutral-100));
+  }
+}
+
+/* Custom scrollbar for chat */
+.chat-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.chat-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: 2px;
+}
+
+.chat-container::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--foreground));
+}
+
+/* Animation for typing indicator */
+@keyframes bounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-10px);
+  }
+}
+
+.typing-dot {
+  animation: bounce 1.4s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
