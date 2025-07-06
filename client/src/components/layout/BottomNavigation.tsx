@@ -13,7 +13,7 @@ export function BottomNavigation() {
   const [location] = useLocation();
 
   return (
-    <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 w-full max-w-md px-4">
+    <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 w-full max-w-md px-4 z-20">
       <div className="bg-white/90 backdrop-blur-sm border border-neutral-200 rounded-2xl p-2 shadow-lg">
         <div className="flex items-center justify-around">
           {navItems.map(({ path, icon: Icon, label }) => {
